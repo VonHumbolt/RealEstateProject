@@ -5,10 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,27 +19,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="users")
-@Inheritance(strategy = InheritanceType.JOINED)
-public class User {
-	
+@Table(name="profile_image")
+public class ProfileImage {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="user_id")
-	private int userId;
+	@Column(name="profile_image_id")
+	private int profileImageId;
 	
-	@Column(name="first_name")
-	private String firstName;
+	@Column(name="profile_image_path")
+	private String profileImagePath;
 	
-	@Column(name="last_name")
-	private String lastName;
+	@OneToOne
+	@JoinColumn(name="user_id")
+	@JsonIgnore
+	private User userr;
 	
-	@Column(name="email")
-	private String email;
-	
-	@Column(name="password")
-	private String password;
-	
-	@OneToOne(mappedBy = "userr")
-	private ProfileImage profileImage;
 }

@@ -8,4 +8,7 @@ public final class Message {
 
 	public static String UPDATED_MESSAGE = "Successfully updated.";
 	
+	public static String IMAGE_UPLOAD = "Image successfully uploaded";
+	
+	public static String IMAGE_UPDATED = "Image successfully updated";
 }

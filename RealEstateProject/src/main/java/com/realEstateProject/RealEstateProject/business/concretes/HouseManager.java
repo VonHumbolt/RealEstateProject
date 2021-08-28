@@ -73,5 +73,11 @@ public class HouseManager implements HouseService{
 		
 		return new SuccessDataResult<List<House>>(this.houseDao.getAllActiveHouseBySortedDesc(pageable));
 	}
+
+	@Override
+	public DataResult<House> getHouseByHouseId(int houseId) {
+		
+		return new SuccessDataResult<House>(this.houseDao.getById(houseId));
+	}
 	
 }

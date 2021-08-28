@@ -21,4 +21,6 @@ public interface HouseService {
 	DataResult<List<House>> getAllActiveHouseBySellerId(int sellerId, int pageNo, int pageSize);
 	
 	DataResult<List<House>> getAllActiveHouseBySortedDesc(int pageNo, int pageSize);
+	
+	DataResult<House> getHouseByHouseId(int houseId);
 }

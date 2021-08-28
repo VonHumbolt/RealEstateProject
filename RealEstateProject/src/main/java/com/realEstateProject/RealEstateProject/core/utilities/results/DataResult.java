@@ -14,6 +14,10 @@ public class DataResult<T> extends Result {
 		this.data = data;
 	}
 	
+	public DataResult(boolean success, String message) {
+		super(success, message);
+	}
+	
 	public DataResult(boolean success) {
 		super(success);
 	}

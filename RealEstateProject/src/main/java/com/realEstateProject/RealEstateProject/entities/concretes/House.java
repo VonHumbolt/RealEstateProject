@@ -1,6 +1,7 @@
 package com.realEstateProject.RealEstateProject.entities.concretes;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -75,6 +77,9 @@ public class House {
 	
 	@ManyToOne
 	@JoinColumn(name="heating")
-	private Heating heating; 
+	private Heating heating;
+	
+	@OneToMany(mappedBy = "house")
+	private List<HouseImage> houseImages;
 	
 }
