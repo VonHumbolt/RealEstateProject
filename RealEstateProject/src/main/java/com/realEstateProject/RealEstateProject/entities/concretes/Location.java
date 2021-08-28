@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,12 +28,14 @@ public class Location {
 	private int locationId;
 	
 	@Column(name="city_name")
+	@NotBlank
 	private String cityName;
 	
 	@Column(name="district")
 	private String district;
 	
 	@Column(name="address")
+	@NotBlank
 	private String address;
 	
 	@OneToOne(mappedBy = "location")

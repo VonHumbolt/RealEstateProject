@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,6 +30,7 @@ public class EstateType {
 	private int estateTypeId;
 	
 	@Column(name="estate_type_name")
+	@NotBlank
 	private String estateTypeName;
 	
 	@OneToMany(mappedBy = "estateType")

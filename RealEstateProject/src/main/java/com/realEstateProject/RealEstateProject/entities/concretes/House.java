@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,12 +32,15 @@ public class House {
 	private int houseId;	
 	
 	@Column(name="price")
+	@NotBlank
 	private double price;
 	
 	@Column(name="area")
+	@NotBlank
 	private int area;
 	
 	@Column(name="room_number")
+	@NotBlank
 	private String roomNumber;
 	
 	@Column(name="publishedAt")
@@ -46,6 +50,7 @@ public class House {
 	private int homeAge;
 	
 	@Column(name="floor")
+	@NotBlank
 	private int floor;
 	
 	@Column(name="is_furnished")

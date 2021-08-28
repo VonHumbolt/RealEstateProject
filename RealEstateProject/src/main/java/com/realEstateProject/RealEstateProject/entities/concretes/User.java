@@ -9,6 +9,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,15 +30,20 @@ public class User {
 	private int userId;
 	
 	@Column(name="first_name")
+	@NotBlank
 	private String firstName;
 	
 	@Column(name="last_name")
+	@NotBlank
 	private String lastName;
 	
 	@Column(name="email")
+	@NotBlank
+	@Email
 	private String email;
 	
 	@Column(name="password")
+	@NotBlank
 	private String password;
 	
 	@OneToOne(mappedBy = "userr")

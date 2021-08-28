@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,6 +30,7 @@ public class Heating {
 	private int heatingId;
 
 	@Column(name="heating_name")
+	@NotBlank
 	private String heatingName;
 	
 	@OneToMany(mappedBy = "heating")
