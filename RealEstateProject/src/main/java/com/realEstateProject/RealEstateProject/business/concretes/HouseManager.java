@@ -57,7 +57,7 @@ public class HouseManager implements HouseService{
 	public DataResult<List<House>> getAllWithPagination(int pageNo, int pageSize) {
 		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
 		
-		return new SuccessDataResult<List<House>>(this.houseDao.getAllActiveHouseWithPagination(pageable));
+		return new SuccessDataResult<List<House>>(this.houseDao.findAll(pageable).toList());
 	}
 
 	@Override

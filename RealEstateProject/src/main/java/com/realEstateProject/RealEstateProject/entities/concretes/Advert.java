@@ -1,15 +1,16 @@
 package com.realEstateProject.RealEstateProject.entities.concretes;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,19 +20,25 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="house_image")
-public class HouseImage {
+@Table(name="advert")
+public class Advert {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="house_image_id")
-	private int houseImageId;
-
-	@Column(name="house_image_path")
-	private String houseImagePath;
-
-	@ManyToOne
+	@Column(name="advert_id")
+	private int advertId;
+	
+	@Column(name="title")
+	@NotBlank
+	private String advertTitle;
+	
+	@Column(name="publishedAt")
+	private Date publishedAt = new Date();
+	
+	@Column(name="is_active")
+	private boolean isActive = false;
+	
+	@OneToOne
 	@JoinColumn(name="house")
-	@JsonIgnore
 	private House house;
 }

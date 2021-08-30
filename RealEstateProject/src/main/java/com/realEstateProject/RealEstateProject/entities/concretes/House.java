@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,9 +45,6 @@ public class House {
 	@NotBlank
 	private String roomNumber;
 	
-	@Column(name="publishedAt")
-	private Date publishedAt = new Date();
-	
 	@Column(name="home_age")
 	private int homeAge;
 	
@@ -61,9 +60,6 @@ public class House {
 	
 	@Column(name="site_name")
 	private String siteName;
-	
-	@Column(name="is_active")
-	private boolean isActive = false;
 	
 	@Column(name="description")
 	private String description;
@@ -86,5 +82,9 @@ public class House {
 	
 	@OneToMany(mappedBy = "house")
 	private List<HouseImage> houseImages;
+	
+	@OneToOne(mappedBy = "house")
+	@JsonIgnore
+	private Advert advert;
 	
 }
