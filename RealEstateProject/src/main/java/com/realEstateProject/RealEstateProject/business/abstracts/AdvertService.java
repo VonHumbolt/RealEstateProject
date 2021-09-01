@@ -2,6 +2,7 @@ package com.realEstateProject.RealEstateProject.business.abstracts;
 
 import java.util.List;
 
+
 import com.realEstateProject.RealEstateProject.core.utilities.results.DataResult;
 import com.realEstateProject.RealEstateProject.core.utilities.results.Result;
 import com.realEstateProject.RealEstateProject.entities.concretes.Advert;
@@ -21,4 +22,6 @@ public interface AdvertService {
 	DataResult<List<Advert>> getAllActiveAdvertsBySortedDesc(int pageNo, int pageSize);
 	
 	DataResult<Advert> getAdvertByAdvertId(int advertId);
+	
+	DataResult<List<Advert>> getAllActiveAdvertsByCityId(int cityId, int pageNo, int pageSize);
 }

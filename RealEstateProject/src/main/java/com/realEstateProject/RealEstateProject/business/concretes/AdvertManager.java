@@ -80,4 +80,11 @@ public class AdvertManager implements AdvertService {
 		return new SuccessDataResult<Advert>(this.advertDao.getAdvertByAdvertId(advertId));
 	}
 
+	@Override
+	public DataResult<List<Advert>> getAllActiveAdvertsByCityId(int cityId, int pageNo, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		
+		return new SuccessDataResult<List<Advert>>(this.advertDao.getAllActiveAdvertsByCityId(cityId, pageable));
+	}
+
 }

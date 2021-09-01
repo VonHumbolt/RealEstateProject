@@ -49,6 +49,12 @@ public class AdvertsController {
 		return this.advertService.getAdvertByAdvertId(advertId);
 	}
 	
+	@GetMapping("getallAdvertsByCityId")
+	public DataResult<List<Advert>> getAllActiveAdvertsByCityId(@RequestParam int cityId, @RequestParam int pageNo, @RequestParam int pageSize) {
+		return this.advertService.getAllActiveAdvertsByCityId(cityId, pageNo, pageSize);
+	}
+	
+	
 	@PostMapping("add")
 	public Result add(@RequestBody Advert advert) {
 		return this.advertService.add(advert);

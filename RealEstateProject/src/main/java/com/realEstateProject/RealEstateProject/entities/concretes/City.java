@@ -1,13 +1,16 @@
 package com.realEstateProject.RealEstateProject.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,25 +22,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="location")
-public class Location {
+@Table(name="city")
+public class City {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="location_id")
-	private int locationId;
+	@Column(name="city_id")
+	private int cityId;
 	
-	@Column(name="address")
-	@NotBlank
-	private String address;
+	@Column(name="city_name")
+	private String cityName;
 	
-	@OneToOne(mappedBy = "location")
-	private City city;
-	
-	@OneToOne(mappedBy = "location")
-	private District district;
-	
-	@OneToOne(mappedBy = "location")
+	@OneToOne
+	@JoinColumn(name="location")
 	@JsonIgnore
-	private House house;
+	private Location location;
+	
+	@OneToMany(mappedBy = "city")
+	private List<District> districts;
 }

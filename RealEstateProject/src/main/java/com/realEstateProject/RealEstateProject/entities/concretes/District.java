@@ -5,9 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,25 +20,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="location")
-public class Location {
-	
+@Table(name="district")
+public class District {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="location_id")
-	private int locationId;
+	@Column(name="district_id")
+	private int districtId;
 	
-	@Column(name="address")
-	@NotBlank
-	private String address;
+	@Column(name="district_name")
+	private String districtName;
 	
-	@OneToOne(mappedBy = "location")
+	@ManyToOne
+	@JoinColumn(name="city")
+	@JsonIgnore
 	private City city;
 	
-	@OneToOne(mappedBy = "location")
-	private District district;
-	
-	@OneToOne(mappedBy = "location")
+	@OneToOne
+	@JoinColumn(name="location")
 	@JsonIgnore
-	private House house;
+	private Location location;
 }

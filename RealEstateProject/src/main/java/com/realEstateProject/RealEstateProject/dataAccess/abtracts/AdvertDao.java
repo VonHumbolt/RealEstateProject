@@ -20,5 +20,8 @@ public interface AdvertDao extends JpaRepository<Advert, Integer>{
 	@Query("From Advert a where a.isActive=true and a.house.seller.userId=:sellerId")
 	List<Advert> getAllActiveAdvertsBySellerId(int sellerId, Pageable pageable);
 	
+	@Query("From Advert a where a.isActive=true and a.house.location.city.cityId=:cityId")
+	List<Advert> getAllActiveAdvertsByCityId(int cityId, Pageable pageable);
+	
 	Advert getAdvertByAdvertId(int advertId);
 }
