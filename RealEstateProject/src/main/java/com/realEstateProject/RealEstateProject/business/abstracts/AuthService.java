@@ -1,14 +1,11 @@
 package com.realEstateProject.RealEstateProject.business.abstracts;
 
 import com.realEstateProject.RealEstateProject.core.utilities.results.DataResult;
-import com.realEstateProject.RealEstateProject.core.utilities.results.Result;
 import com.realEstateProject.RealEstateProject.entities.concretes.User;
 
-public interface UserService {
-
-	DataResult<User> getUserById(int userId);
+public interface AuthService {
 	
-	DataResult<User> getUserByEmail(String email);
+	DataResult<User> login(User user);
 	
-	Result add(User user);
+	DataResult<User> register(User user);
 }

@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.realEstateProject.RealEstateProject.entities.concretes.Advert;
-import com.realEstateProject.RealEstateProject.entities.concretes.House;
 
 public interface AdvertDao extends JpaRepository<Advert, Integer>{
 

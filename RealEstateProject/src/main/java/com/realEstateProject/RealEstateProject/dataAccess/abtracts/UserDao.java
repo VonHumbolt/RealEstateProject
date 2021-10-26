@@ -6,4 +6,5 @@ import com.realEstateProject.RealEstateProject.entities.concretes.User;
 
 public interface UserDao extends JpaRepository<User, Integer>{
 
+	User findByEmail(String email);
 }
